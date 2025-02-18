@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratory Facility Booking Form - LabEase</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="booking_form.css">
+</head>
+<body>
+    <div class="booking-container">
+        <a href="login_page.html" class="back-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 12H5" stroke="#dd3859" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 19L5 12L12 5" stroke="#dd3859" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+
+        <div class="form-header">
+            <h1>Laboratory Facility Booking Form</h1>
+        </div>
+
+        <form class="booking-form">
+            <section class="form-section">
+                <h2>REQUESTING PARTY</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="department">Department</label>
+                        <input type="text" id="department" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="club">Club/Organization</label>
+                        <input type="text" id="club">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="person">Person Responsible</label>
+                        <input type="text" id="person" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">Contact No.</label>
+                        <input type="tel" id="contact" required>
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>EVENT DETAILS</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="event">Name of Event</label>
+                        <input type="text" id="event" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="attendance">Expected Attendees</label>
+                        <input type="number" id="attendance" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="request-date">Booking Request Date</label>
+                        <input type="date" id="request-date" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="start-time">Event Start Time</label>
+                        <input type="time" id="start-time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="end-time">Event End Time</label>
+                        <input type="time" id="end-time" required>
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>FACILITY</h2>
+                <div class="form-group">
+                    <select id="facility" required>
+                        <option value="" disabled selected>Select a facility</option>
+                        <option value="lab1">Computer Laboratory 1</option>
+                        <option value="lab2">Computer Laboratory 2</option>
+                        <option value="lab3">Computer Laboratory 3</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="noted-by">NOTED BY</label>
+                        <input type="text" id="noted-by" readonly>
+                        <small class="input-caption">Program Dean/Adviser/Moderator</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="date-filled">DATE FILLED</label>
+                        <input type="date" id="date-filled" required>
+                    </div>
+                </div>
+            </section>
+
+            <div class="form-actions">
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>

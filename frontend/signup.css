@@ -1,0 +1,175 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    position: relative;
+}
+
+/* Back Button */
+.back-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.back-button:hover {
+    transform: translateX(-5px);
+}
+
+/* Signup Form */
+.signup-form {
+    margin-top: 3rem;
+}
+
+.signup-form h1 {
+    color: #dd3859;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: #666;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: #999;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #dd3859;
+}
+
+/* Password Input */
+.password-input {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.toggle-password:hover svg path {
+    stroke: #dd3859;
+}
+
+.eye-icon {
+    pointer-events: none;
+}
+
+.eye-closed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.eye-open {
+    position: relative;
+    z-index: 1;
+}
+
+/* Submit Button */
+.signup-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: #dd3859;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.signup-btn:hover {
+    background: #c62c4c;
+}
+
+/* Sign In Link */
+.signin-text {
+    text-align: center;
+    margin-top: 2rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.signin-link {
+    color: #dd3859;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signin-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .signup-container {
+        padding: 1.5rem;
+    }
+
+    .signup-form h1 {
+        font-size: 2rem;
+    }
+}
