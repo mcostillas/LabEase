@@ -67,7 +67,7 @@
         const CREDENTIALS = {
             instructor: {
                 username: 'instructor',
-                password: '12345',
+                password: '1234',
                 role: 'instructor',
                 dashboard: 'instructor_dashboard.html'
             },
@@ -78,6 +78,38 @@
                 dashboard: 'admin_dashboard.html'
             }
         };
+
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            
+            console.log('Login attempt:', { username, password }); // Debug log
+            
+            // Check credentials
+            const user = Object.values(CREDENTIALS).find(
+                user => user.username === username && user.password === password
+            );
+            
+            console.log('Found user:', user); // Debug log
+
+            if (user) {
+                console.log('Login successful, redirecting to:', user.dashboard); // Debug log
+                // Store login state
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('userRole', user.role);
+                
+                // Redirect to appropriate dashboard
+                window.location.href = user.dashboard;
+            } else {
+                console.log('Login failed'); // Debug log
+                errorMessage.textContent = 'Invalid username or password';
+                errorMessage.style.display = 'block';
+            }
+            
+            return false;
+        }
 
         // Set initial state
         eyeOpen.style.display = 'block';
@@ -96,38 +128,6 @@
                 eyeClosed.style.display = 'none';
             }
         });
-
-        // Handle login
-        function handleLogin(event) {
-            event.preventDefault();
-            
-            const username = document.querySelector('#username').value;
-            const password = document.querySelector('#password').value;
-
-            // Check credentials for both instructor and admin
-            let user = null;
-            for (const [role, creds] of Object.entries(CREDENTIALS)) {
-                if (username === creds.username && password === creds.password) {
-                    user = creds;
-                    break;
-                }
-            }
-
-            if (user) {
-                // Store login state
-                localStorage.setItem('isLoggedIn', 'true');
-                localStorage.setItem('userRole', user.role);
-                
-                // Redirect to appropriate dashboard
-                window.location.href = user.dashboard;
-            } else {
-                // Show error message
-                errorMessage.textContent = 'Invalid username or password';
-                errorMessage.style.display = 'block';
-            }
-
-            return false;
-        }
 
         // Check if user is already logged in
         window.addEventListener('load', function() {

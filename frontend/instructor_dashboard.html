@@ -71,58 +71,111 @@
 
         <main class="main-content">
             <div class="dashboard-header">
-                <div class="header-date">
-                    <span id="currentDate">November 4, 2024</span>
-                    <span id="currentTime">Monday, 7:03 am</span>
-                </div>
-                <div class="user-menu">
-                    <span class="user-label">User</span>
-                    <button class="user-button">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
+                <div class="header-content">
+                    <div class="welcome-section">
+                        <h1>Welcome, Instructor!</h1>
+                        <div class="header-date">
+                            <span id="currentDate">November 4, 2024</span>
+                            <span class="date-separator">•</span>
+                            <span id="currentTime">Monday, 7:03 am</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <h1>Welcome, Instructor!</h1>
 
             <div class="booking-overview">
                 <h2>Booking Overview</h2>
                 <div class="booking-cards">
                     <div class="booking-card pending">
                         <div class="booking-info">
-                            <h3>Pending</h3>
-                            <p>5 Bookings</p>
-                        </div>
-                        <div class="booking-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                                <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
+                            <div class="booking-text">
+                                <h3>Pending</h3>
+                                <p>5 bookings</p>
+                            </div>
+                            <div class="booking-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16 2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M3 10H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                     <div class="booking-card confirmed">
                         <div class="booking-info">
-                            <h3>Confirmed</h3>
-                            <p>2 Bookings</p>
-                        </div>
-                        <div class="booking-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                            <div class="booking-text">
+                                <h3>Confirmed</h3>
+                                <p>2 bookings</p>
+                            </div>
+                            <div class="booking-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                     <div class="booking-card cancelled">
                         <div class="booking-info">
-                            <h3>Cancelled</h3>
-                            <p>1 Bookings</p>
+                            <div class="booking-text">
+                                <h3>Cancelled</h3>
+                                <p>1 booking</p>
+                            </div>
+                            <div class="booking-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
                         </div>
-                        <div class="booking-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="room-availability">
+                <h2>Room Availability</h2>
+                <div class="room-grid">
+                    <div class="room-card available">
+                        <div class="room-info">
+                            <h3>Open Laboratory</h3>
+                            <span class="status-badge">Available</span>
+                        </div>
+                    </div>
+                    <div class="room-card in-use">
+                        <div class="room-info">
+                            <h3>IOT Laboratory</h3>
+                            <span class="status-badge">In Use</span>
+                        </div>
+                    </div>
+                    <div class="room-card available">
+                        <div class="room-info">
+                            <h3>201</h3>
+                            <span class="status-badge">Available</span>
+                        </div>
+                    </div>
+                    <div class="room-card in-use">
+                        <div class="room-info">
+                            <h3>202</h3>
+                            <span class="status-badge">In Use</span>
+                        </div>
+                    </div>
+                    <div class="room-card available">
+                        <div class="room-info">
+                            <h3>203</h3>
+                            <span class="status-badge">Available</span>
+                        </div>
+                    </div>
+                    <div class="room-card in-use">
+                        <div class="room-info">
+                            <h3>204</h3>
+                            <span class="status-badge">In Use</span>
+                        </div>
+                    </div>
+                    <div class="room-card available">
+                        <div class="room-info">
+                            <h3>205</h3>
+                            <span class="status-badge">Available</span>
                         </div>
                     </div>
                 </div>
@@ -130,30 +183,36 @@
 
             <div class="schedule-section">
                 <h2>Schedule</h2>
-                <div class="schedule-table">
-                    <div class="table-header">
-                        <div class="header-cell">Time Slot</div>
-                        <div class="header-cell">Purpose</div>
-                        <div class="header-cell">Section</div>
-                        <div class="header-cell">Lab, Room No.</div>
+                <div class="schedule-header">
+                    <div class="header-item">Time Slot</div>
+                    <div class="header-item">Purpose</div>
+                    <div class="header-item">Section</div>
+                    <div class="header-item">Lab, Room No.</div>
+                </div>
+                <div class="schedule-cards">
+                    <div class="schedule-card">
+                        <div class="schedule-item">
+                            <div class="time-slot">9:00 am - 12:00 am</div>
+                            <div class="purpose">Web Applications Development 2</div>
+                            <div class="section">BSIT-2A</div>
+                            <div class="room">L202</div>
+                        </div>
                     </div>
-                    <div class="table-row">
-                        <div class="cell">9:00 am - 12:00 am</div>
-                        <div class="cell">Web Applications Development 2</div>
-                        <div class="cell">BSIT-2A</div>
-                        <div class="cell">L202</div>
+                    <div class="schedule-card">
+                        <div class="schedule-item">
+                            <div class="time-slot">9:00 am - 12:00 am</div>
+                            <div class="purpose">Web Applications Development 2</div>
+                            <div class="section">BSIT-2A</div>
+                            <div class="room">L202</div>
+                        </div>
                     </div>
-                    <div class="table-row">
-                        <div class="cell">9:00 am - 12:00 am</div>
-                        <div class="cell">Web Applications Development 2</div>
-                        <div class="cell">BSIT-2A</div>
-                        <div class="cell">L202</div>
-                    </div>
-                    <div class="table-row">
-                        <div class="cell">1:00 pm - 4:00 pm</div>
-                        <div class="cell">Web Applications Development 2</div>
-                        <div class="cell">BSIT-2B</div>
-                        <div class="cell">L202</div>
+                    <div class="schedule-card">
+                        <div class="schedule-item">
+                            <div class="time-slot">1:00 pm - 4:00 pm</div>
+                            <div class="purpose">Web Applications Development 2</div>
+                            <div class="section">BSIT-2B</div>
+                            <div class="room">L202</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -189,7 +248,7 @@
             const timeOptions = { weekday: 'long', hour: 'numeric', minute: '2-digit', hour12: true };
             
             document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', dateOptions);
-            document.getElementById('currentTime').textContent = now.toLocaleDateString('en-US', timeOptions).split(',').slice(1).join(',').toLowerCase();
+            document.getElementById('currentTime').textContent = now.toLocaleTimeString('en-US', timeOptions);
         }
 
         updateDateTime();

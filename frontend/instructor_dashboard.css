@@ -19,7 +19,7 @@ body {
 /* Side Navigation */
 .sidenav {
     width: 100px;
-    background-color: #E9256E;
+    background-color: #dd3859;
     height: 100vh;
     position: fixed;
     display: flex;
@@ -82,19 +82,20 @@ body {
 
 /* Navigation Items */
 .nav-item {
-    color: #fff;
-    text-decoration: none;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    padding: 0.75rem 1.5rem;
-    width: 100%;
-    transition: background-color 0.2s;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+    margin: 4px 8px;
 }
 
-.sidenav.expanded .nav-item {
-    justify-content: flex-start;
+.nav-item span {
+    font-size: 12px;
+    margin-top: 4px;
 }
 
 .nav-item svg {
@@ -103,11 +104,21 @@ body {
 }
 
 .nav-item:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: white;
+    color: #dd3859;
+}
+
+.nav-item:hover svg path {
+    stroke: #dd3859;
 }
 
 .nav-item.active {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: white;
+    color: #dd3859;
+}
+
+.nav-item.active svg path {
+    stroke: #dd3859;
 }
 
 .nav-item span {
@@ -140,165 +151,277 @@ body {
 
 /* Dashboard Header */
 .dashboard-header {
+    background-color: #FFffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    margin: 24px;
+    padding: 24px;
+}
+
+.header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+}
+
+.welcome-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.welcome-section h1 {
+    color: #DD3859;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
 }
 
 .header-date {
     display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-}
-
-.header-date span {
-    color: #64748B;
-}
-
-.user-menu {
-    display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 8px;
+    color: #64748B;
+    font-size: 14px;
 }
 
-.user-label {
-    color: #64748B;
-}
-
-.user-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #64748B;
+.date-separator {
+    color: #DD3859;
+    font-weight: 600;
 }
 
 /* Welcome Title */
 h1 {
-    color: #1E293B;
+    color: #DD3859;
     font-size: 2rem;
     margin-bottom: 2rem;
 }
 
 /* Booking Overview */
 .booking-overview {
-    margin-bottom: 2rem;
+    background-color: #FFF1F3;
+    border: 0.5px solid #DD3859;
+    border-radius: 16px;
+    padding: 24px;
+    margin: 24px;
 }
 
 .booking-overview h2 {
-    color: #1E293B;
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
+    color: #DD3859;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
 }
 
 .booking-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    display: flex;
+    gap: 16px;
 }
 
 .booking-card {
-    background: #fff;
-    border-radius: 0.75rem;
-    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #DD3859;
+    padding: 16px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.booking-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.booking-info h3 {
-    color: #1E293B;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+.booking-text h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+    margin-bottom: 4px;
 }
 
-.booking-info p {
-    color: #64748B;
-    font-size: 0.875rem;
+.booking-text p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
 }
 
 .booking-icon {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Booking Card Variants */
-.booking-card.pending {
-    background-color: #FFF1F2;
-}
-
 .booking-card.pending .booking-icon {
-    background-color: #E9256E;
-    color: #fff;
+    background-color: #DD3859;
 }
 
-.booking-card.confirmed {
-    background-color: #F0FDF4;
+.booking-card.pending .booking-icon svg {
+    color: white;
 }
 
 .booking-card.confirmed .booking-icon {
-    background-color: #22C55E;
-    color: #fff;
+    background-color: #DD3859;
 }
 
-.booking-card.cancelled {
-    background-color: #FEF2F2;
+.booking-card.confirmed .booking-icon svg {
+    color: white;
 }
 
 .booking-card.cancelled .booking-icon {
-    background-color: #EF4444;
-    color: #fff;
+    background-color: #DD3859;
+}
+
+.booking-card.cancelled .booking-icon svg {
+    color: white;
 }
 
 /* Schedule Section */
 .schedule-section {
-    background: #fff;
-    border-radius: 0.75rem;
-    padding: 1.5rem;
+    border-radius: 16px;
+    padding: 24px;
+    margin: 24px;
+  
 }
 
 .schedule-section h2 {
-    color: #1E293B;
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
+    color: #DD3859;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
 }
 
-.schedule-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.table-header {
+.schedule-header {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr;
-    padding: 1rem;
-    background-color: #F8F9FA;
-    border-radius: 0.5rem;
-    margin-bottom: 0.5rem;
+    grid-template-columns: 1.5fr 2fr 1fr 1fr;
+    gap: 16px;
+    padding: 12px 16px;
+    background-color: #FFF1F3;
+    border: 1px solid #DD3859;
+    border-radius: 8px;
+    margin-bottom: 16px;
 }
 
-.header-cell {
-    color: #64748B;
+.header-item {
+    color: #DD3859;
+    font-size: 14px;
     font-weight: 500;
-    font-size: 0.875rem;
 }
 
-.table-row {
+.schedule-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.schedule-card {
+    background: #ffffff     ;
+    border: 1px solid #dfdfdf;
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.2s ease;
+}
+
+.schedule-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.schedule-item {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr;
-    padding: 1rem;
-    border-bottom: 1px solid #E2E8F0;
+    grid-template-columns: 1.5fr 2fr 1fr 1fr;
+    gap: 16px;
+    align-items: center;
 }
 
-.table-row:last-child {
-    border-bottom: none;
+.time-slot {
+    color: #DD3859;
+    font-weight: 500;
+    font-size: 14px;
 }
 
-.cell {
+.purpose {
     color: #1E293B;
-    font-size: 0.875rem;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.section {
+    color: #64748B;
+    font-size: 14px;
+}
+
+.room {
+    color: #64748B;
+    font-size: 14px;
+}
+
+/* Room Availability Section */
+.room-availability {
+
+    border-radius: 16px;
+    padding: 20px;
+    margin: 24px;
+}
+
+.room-availability h2 {
+    color: #DD3859;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    padding: 0 8px;
+}
+
+.room-card {
+    background: #ffffff;
+    border: 1px solid #dfdfdf;
+    border-radius: 8px;
+    padding: 10px;
+    transition: all 0.2s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.room-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+}
+
+.room-info h3 {
+    font-size: 13px;
+    font-weight: 500;
+    color: #1E293B;
+    margin: 0;
+}
+
+.status-badge {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.room-card.available .status-badge {
+    background-color: #ECFDF3;
+    color: #039855;
+}
+
+.room-card.in-use .status-badge {
+    background-color: #FEF3F2;
+    color: #D92D20;
 }
