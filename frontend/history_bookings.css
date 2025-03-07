@@ -1,4 +1,11 @@
-/* Global Styles */
+/* General Styles */
+:root {
+    --primary-color: #DD3859;
+    --text-color: #333;
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -132,6 +139,7 @@ body {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+
 /* Main Content */
 .main-content {
     flex: 1;
@@ -187,154 +195,42 @@ body {
     font-weight: 600;
 }
 
-.user-section {
-    position: static;
-    background-color: transparent;
-    padding: 0;
-    box-shadow: none;
-    border-radius: 0;
+/* History Specific Styles */
+.bookings-container {
+    border-radius: 16px;
+    padding: 24px;
+    margin: 24px;
 }
 
-.user-dropdown {
-    position: relative;
+.controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 24px;
 }
 
-.user-info {
+.book-schedule-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
     display: flex;
     align-items: center;
     gap: 8px;
-    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-.user-avatar {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.user-name {
-    font-weight: 500;
-    color: #333;
-}
-
-.dropdown-arrow {
-    color: #666;
-    transition: transform 0.2s ease;
-}
-
-.user-info:hover .dropdown-arrow {
-    transform: rotate(180deg);
-}
-
-/* Welcome Title */
-h1 {
-    color: #99183A;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-}
-
-/* Booking Overview */
-.booking-overview {
-    background-color: #FFF1F3;
-    border: 0.5px solid #DD3859;
-    border-radius: 16px;
-    padding: 24px;
-    margin: 24px;
-}
-
-.booking-overview h2 {
-    color: #99183A;
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 16px;
-}
-
-.booking-cards {
-    display: flex;
-    gap: 16px;
-}
-
-.booking-card {
-    background: white;
-    border-radius: 12px;
-    border: 1px solid #DD3859;
-    padding: 16px;
-    flex: 1;
-    min-width: 200px;
-}
-
-.booking-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.booking-text h3 {
-    font-size: 16px;
-    font-weight: 500;
-    margin: 0;
-    margin-bottom: 4px;
-}
-
-.booking-text p {
-    color: #666;
-    font-size: 14px;
-    margin: 0;
-}
-
-.booking-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.booking-card.pending .booking-icon {
-    background-color: #DD3859;
-}
-
-.booking-card.pending .booking-icon svg {
-    color: white;
-}
-
-.booking-card.confirmed .booking-icon {
-    background-color: #DD3859;
-}
-
-.booking-card.confirmed .booking-icon svg {
-    color: white;
-}
-
-.booking-card.cancelled .booking-icon {
-    background-color: #DD3859;
-}
-
-.booking-card.cancelled .booking-icon svg {
-    color: white;
-}
-
-/* Schedule Section */
-.schedule-section {
-    border-radius: 16px;
-    padding: 24px;
-    margin: 24px;
-  
-}
-
-.schedule-section h2 {
-    color: #99183A;
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 16px;
+.book-schedule-btn:hover {
+    background-color: #c73350;
+    transform: translateY(-2px);
 }
 
 .schedule-header {
     display: grid;
-    grid-template-columns: 1.5fr 2fr 1fr 1fr;
+    grid-template-columns: 1.5fr 2fr 1fr 1fr 1fr;
     gap: 16px;
     padding: 12px 16px;
     background-color: #FFF1F3;
@@ -356,7 +252,7 @@ h1 {
 }
 
 .schedule-card {
-    background: #ffffff     ;
+    background: #ffffff;
     border: 1px solid #dfdfdf;
     border-radius: 12px;
     padding: 16px;
@@ -370,7 +266,7 @@ h1 {
 
 .schedule-item {
     display: grid;
-    grid-template-columns: 1.5fr 2fr 1fr 1fr;
+    grid-template-columns: 1.5fr 2fr 1fr 1fr 1fr;
     gap: 16px;
     align-items: center;
 }
@@ -397,96 +293,40 @@ h1 {
     font-size: 14px;
 }
 
-/* Room Availability Section */
-.room-availability {
-    border-radius: 16px;
-    padding: 24px;
-    margin: 24px;
-    box-shadow: none;
-}
-
-.room-availability h2 {
-    color: #99183A;
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 16px;
-}
-
-.room-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 16px;
-    justify-content: center;
-    justify-items: center;
-}
-
-.room-card {
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    padding: 16px;
-    transition: all 0.2s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80px;
-    width: 100%;
-    max-width: 200px;
-}
-
-.room-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.room-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-    text-align: center;
-}
-
-.room-info h3 {
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-    margin: 0;
-}
-
-.status-badge {
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 12px;
+.status {
     font-weight: 500;
-    white-space: nowrap;
+    font-size: 14px;
 }
 
-.room-card.available .status-badge {
-    background-color: #ECFDF3;
-    color: #039855;
+/* Status Colors */
+.schedule-card.pending {
+    border-left: 4px solid #F59E0B;
 }
 
-.room-card.in-use .status-badge {
-    background-color: #FEF3F2;
-    color: #D92D20;
-}
-
-.room-card.maintenance .status-badge {
-    background-color: #FFF8E1;
+.schedule-card.pending .status {
     color: #F59E0B;
 }
 
-.room-details {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+.schedule-card.approved {
+    border-left: 4px solid #10B981;
 }
 
-.room-details p {
-    font-size: 14px;
-    color: #666;
-    margin: 0;
+.schedule-card.approved .status {
+    color: #10B981;
+}
+
+.schedule-card.rejected {
+    border-left: 4px solid #EF4444;
+}
+
+.schedule-card.rejected .status {
+    color: #EF4444;
+}
+
+.schedule-card.cancelled {
+    border-left: 4px solid #64748B;
+}
+
+.schedule-card.cancelled .status {
+    color: #64748B;
 }

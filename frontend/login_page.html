@@ -44,7 +44,7 @@
                 <div id="error-message" class="error-message" style="display: none; color: #E9256E; margin-bottom: 1rem; font-size: 0.875rem;"></div>
 
                 <div class="button-group">
-                    <button type="button" class="book_now-btn" onclick="window.location.href='booking_form.html'">Book Now!</button>
+                    <button type="button" class="book_now-btn" onclick="checkAuthAndRedirect('booking_form.html')">Book Now!</button>
                     <button type="submit" class="login-btn">Log In</button>
                 </div>
             </form>
@@ -73,7 +73,7 @@
             },
             admin: {
                 username: 'admin',
-                password: 'admin123',
+                password: '1234',
                 role: 'admin',
                 dashboard: 'admin_dashboard.html'
             }
@@ -85,25 +85,18 @@
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value.trim();
             
-            console.log('Login attempt:', { username, password }); // Debug log
-            
             // Check credentials
             const user = Object.values(CREDENTIALS).find(
                 user => user.username === username && user.password === password
             );
-            
-            console.log('Found user:', user); // Debug log
 
             if (user) {
-                console.log('Login successful, redirecting to:', user.dashboard); // Debug log
-                // Store login state
-                localStorage.setItem('isLoggedIn', 'true');
-                localStorage.setItem('userRole', user.role);
-                
-                // Redirect to appropriate dashboard
-                window.location.href = user.dashboard;
+                // Generate a simple token (in real app, this would be from server)
+                const token = btoa(JSON.stringify({ username: user.username, role: user.role }));
+                localStorage.setItem('labease_auth_token', token);
+                localStorage.setItem('labease_user_data', JSON.stringify(user));
+                window.location.replace(user.dashboard);
             } else {
-                console.log('Login failed'); // Debug log
                 errorMessage.textContent = 'Invalid username or password';
                 errorMessage.style.display = 'block';
             }
@@ -111,7 +104,7 @@
             return false;
         }
 
-        // Set initial state
+        // Set initial state of password visibility
         eyeOpen.style.display = 'block';
         eyeClosed.style.display = 'none';
 
@@ -130,17 +123,30 @@
         });
 
         // Check if user is already logged in
-        window.addEventListener('load', function() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-            const userRole = localStorage.getItem('userRole');
-            
-            if (isLoggedIn && userRole) {
-                const dashboard = CREDENTIALS[userRole]?.dashboard;
-                if (dashboard) {
-                    window.location.href = dashboard;
+        const token = localStorage.getItem('labease_auth_token');
+        if (token) {
+            try {
+                const userData = JSON.parse(atob(token));
+                const user = CREDENTIALS[userData.role];
+                if (user) {
+                    window.location.replace(user.dashboard);
                 }
+            } catch (e) {
+                localStorage.removeItem('labease_auth_token');
+                localStorage.removeItem('labease_user_data');
             }
-        });
+        }
+
+        // Function to check auth before redirecting
+        function checkAuthAndRedirect(targetPage) {
+            const token = localStorage.getItem('labease_auth_token');
+            if (!token) {
+                errorMessage.textContent = 'Please log in first to access this feature';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            window.location.href = targetPage;
+        }
     </script>
 </body>
 </html>
