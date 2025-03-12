@@ -44,7 +44,7 @@
                 <div id="error-message" class="error-message" style="display: none; color: #E9256E; margin-bottom: 1rem; font-size: 0.875rem;"></div>
 
                 <div class="button-group">
-                    <button type="button" class="book_now-btn" onclick="checkAuthAndRedirect('booking_form.html')">Book Now!</button>
+                    <button type="button" class="book_now-btn" onclick="window.location.href='booking_form.html'">Book Now!</button>
                     <button type="submit" class="login-btn">Log In</button>
                 </div>
             </form>
@@ -69,13 +69,13 @@
                 username: 'instructor',
                 password: '1234',
                 role: 'instructor',
-                dashboard: 'instructor_dashboard.html'
+                dashboard: 'instructor/instructor_dashboard.html'
             },
             admin: {
                 username: 'admin',
                 password: '1234',
                 role: 'admin',
-                dashboard: 'admin_dashboard.html'
+                dashboard: 'admin/admin_dashboard.html'
             }
         };
 
@@ -122,19 +122,11 @@
             }
         });
 
-        // Check if user is already logged in
+        // Remove auto-redirect on existing token
         const token = localStorage.getItem('labease_auth_token');
         if (token) {
-            try {
-                const userData = JSON.parse(atob(token));
-                const user = CREDENTIALS[userData.role];
-                if (user) {
-                    window.location.replace(user.dashboard);
-                }
-            } catch (e) {
-                localStorage.removeItem('labease_auth_token');
-                localStorage.removeItem('labease_user_data');
-            }
+            localStorage.removeItem('labease_auth_token');
+            localStorage.removeItem('labease_user_data');
         }
 
         // Function to check auth before redirecting

@@ -35,7 +35,7 @@
         <div class="content-left">
             <h1>Book a<br>Laboratory now.</h1>
             <p>Effortless Lab Booking at Your Fingertips—Access, Reserve,<br>and Manage Your Lab Sessions Anytime, Anywhere.</p>
-            <button class="get-started-btn"onclick="window.location.href='login_page.html'">Get Started</button>
+            <button class="get-started-btn" onclick="clearAuthAndRedirect()">Get Started</button>
         </div>
         <div class="content-right">
             <div class="calendar-illustration">
@@ -43,5 +43,13 @@
             </div>
         </div>
     </main>
+
+    <script>
+        function clearAuthAndRedirect() {
+            localStorage.removeItem('labease_auth_token');
+            localStorage.removeItem('labease_user_data');
+            window.location.href = 'login_page.html';
+        }
+    </script>
 </body>
 </html>

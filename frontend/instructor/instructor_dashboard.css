@@ -188,11 +188,7 @@ body {
 }
 
 .user-section {
-    position: static;
-    background-color: transparent;
-    padding: 0;
-    box-shadow: none;
-    border-radius: 0;
+    position: relative;
 }
 
 .user-dropdown {
@@ -202,30 +198,40 @@ body {
 .user-info {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
+    padding: 8px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.user-info:hover {
+    background-color: rgba(221, 56, 89, 0.05);
 }
 
 .user-avatar {
     width: 32px;
     height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .user-name {
+    font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    color: #333;
+    color: #1E293B;
 }
 
 .dropdown-arrow {
-    color: #666;
-    transition: transform 0.2s ease;
+    color: #64748B;
+    transition: transform 0.2s;
 }
 
 .user-info:hover .dropdown-arrow {
-    transform: rotate(180deg);
+    color: #DD3859;
 }
 
 /* Welcome Title */

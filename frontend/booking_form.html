@@ -8,15 +8,6 @@
     <link rel="stylesheet" href="booking_form.css">
 </head>
 <body>
-    <div id="auth-check" style="display: none;">
-        <div style="height: 100vh; display: flex; align-items: center; justify-content: center; font-family: Poppins;">
-            <div style="text-align: center; color: #DD3859;">
-                <h2>Please log in to access this page</h2>
-                <button onclick="window.location.href='login_page.html'" style="background: #DD3859; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-family: Poppins; margin-top: 20px;">Go to Login</button>
-            </div>
-        </div>
-    </div>
-
     <div id="main-content" class="booking-container">
         <a href="login_page.html" class="back-button">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -117,28 +108,13 @@
     </div>
 
     <script>
-        // Check authentication on page load
-        function checkAuth() {
-            const token = localStorage.getItem('labease_auth_token');
-            if (!token) {
-                document.getElementById('auth-check').style.display = 'block';
-                document.getElementById('main-content').style.display = 'none';
-                return false;
-            }
-            return true;
-        }
-
         // Set current date as default for date-filled
         document.getElementById('date-filled').valueAsDate = new Date();
-
-        // Run auth check
-        checkAuth();
 
         // Handle form submission
         document.querySelector('.booking-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            if (!checkAuth()) return;
-
+            
             // Add your form submission logic here
             alert('Booking submitted successfully!');
         });

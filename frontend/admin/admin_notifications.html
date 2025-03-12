@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - LabEase Admin</title>
+    <link rel="stylesheet" href="admin_dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav id="sidenav" class="sidenav">
+            <div class="nav-header">
+                <img src="../images/logo.png" alt="LabEase Logo" class="logo">
+                <button id="navToggle" class="nav-toggle">
+                    <span class="material-icons">menu</span>
+                </button>
+            </div>
+            <div class="nav-links">
+                <a href="admin_dashboard.html" class="nav-link">
+                    <span class="material-icons">dashboard</span>
+                    <span class="link-text">Dashboard</span>
+                </a>
+                <a href="admin_notifications.html" class="nav-link active">
+                    <span class="material-icons">notifications</span>
+                    <span class="link-text">Notifications</span>
+                </a>
+                <a href="manage_users.html" class="nav-link">
+                    <span class="material-icons">people</span>
+                    <span class="link-text">Manage Users</span>
+                </a>
+                <a href="manage_rooms.html" class="nav-link">
+                    <span class="material-icons">meeting_room</span>
+                    <span class="link-text">Manage Rooms</span>
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <span class="material-icons">settings</span>
+                    <span class="link-text">Settings</span>
+                </a>
+                <a href="#" class="nav-link logout">
+                    <span class="material-icons">logout</span>
+                    <span class="link-text">Logout</span>
+                </a>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="header-content">
+                    <div class="datetime">
+                        <div id="currentDate"></div>
+                        <div id="currentTime"></div>
+                    </div>
+                    <div class="user-info">
+                        <span class="material-icons">account_circle</span>
+                        <span class="user-name">Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="notifications-section">
+                    <h2>Notifications</h2>
+                    <div class="notifications-filters">
+                        <button class="filter-btn active">All</button>
+                        <button class="filter-btn">Unread</button>
+                        <button class="filter-btn">Bookings</button>
+                        <button class="filter-btn">System</button>
+                    </div>
+                    <div class="notifications-list">
+                        <div class="notification-item unread">
+                            <div class="notification-icon">
+                                <span class="material-icons">event</span>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h3>New Booking Request</h3>
+                                    <span class="notification-time">2 minutes ago</span>
+                                </div>
+                                <p>New laboratory booking request from BSIT-2A for Room 202</p>
+                                <div class="notification-actions">
+                                    <button class="action-btn approve">Approve</button>
+                                    <button class="action-btn reject">Reject</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-icon">
+                                <span class="material-icons">warning</span>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h3>System Alert</h3>
+                                    <span class="notification-time">1 hour ago</span>
+                                </div>
+                                <p>Room 203 has been marked as under maintenance</p>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-icon">
+                                <span class="material-icons">check_circle</span>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <h3>Booking Approved</h3>
+                                    <span class="notification-time">2 hours ago</span>
+                                </div>
+                                <p>Booking request for Room 201 has been approved</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Check authentication and role
+        const token = localStorage.getItem('labease_auth_token');
+        if (!token) {
+            window.location.replace('../login_page.html');
+        } else {
+            try {
+                const userData = JSON.parse(atob(token));
+                if (userData.role !== 'admin') {
+                    window.location.replace('../login_page.html');
+                }
+            } catch (e) {
+                localStorage.removeItem('labease_auth_token');
+                localStorage.removeItem('labease_user_data');
+                window.location.replace('../login_page.html');
+            }
+        }
+
+        // Sidebar toggle
+        const navToggle = document.getElementById('navToggle');
+        const sidenav = document.getElementById('sidenav');
+        
+        navToggle.addEventListener('click', () => {
+            sidenav.classList.toggle('collapsed');
+        });
+
+        // Update current date and time
+        function updateDateTime() {
+            const now = new Date();
+            const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+            const timeOptions = { weekday: 'long', hour: 'numeric', minute: '2-digit', hour12: true };
+            
+            document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', dateOptions);
+            document.getElementById('currentTime').textContent = now.toLocaleDateString('en-US', timeOptions).split(',').slice(0, 2).join(',');
+        }
+
+        updateDateTime();
+        setInterval(updateDateTime, 60000); // Update every minute
+
+        // Handle logout
+        document.querySelector('.logout').addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('labease_auth_token');
+            localStorage.removeItem('labease_user_data');
+            window.location.replace('../login_page.html');
+        });
+
+        // Handle notification filters
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
